@@ -221,11 +221,15 @@ const myInfo = `My name's ${name} and I'm ${nationality}`;
 const welcome = user =&gt; `Welcome ${user}`;
 </code></pre>
 <h2>IF ELSE.</h2>
-<pre><code class="language-javascript">if (gender == &quot;female&quot;) {
+<pre><code class="language-javascript">// Old
+if (gender == &quot;female&quot;) {
     const mssage = &quot;Hey girl&quot;;
 } else {
     const mssage = &quot;Hey boy&quot;;
 }
+
+// New
+const message = gender == &quot;female&quot; ? &quot;Hey girl&quot; : &quot;Hey boy&quot;;
 </code></pre></div>
 
 </div>
