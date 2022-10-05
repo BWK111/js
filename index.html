@@ -134,23 +134,43 @@ https://prismjs.com/download.html#themes=prism-okaidia&languages=markup+css+clik
             margin-top: 15px;
         }
 
-        #wrapper {
-            width: 1200px;
-            margin: 50px auto;
+        #link-hide,
+        #content-hide {
+            display: none
         }
 
-        @media (max-width: 700px) {
-            #wrapper {
-                width: 600px;
-                margin: 50px auto;
-            }
+        .g-wrapper {
+            display: flex;
+            gap: 50px;
+        }
+
+        .g-left {
+            padding: 20px;
+            background-color: #fbfbfa;
+        }
+
+        .g-left a {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .g-content {
+            padding: 20px;
+            flex: 1 1 auto
         }
     </style>
 </head>
 
 <body>
+    <div class="g-wrapper">
+        <div class="g-left"></div>
+        <div class="g-content"></div>
+    </div>
 
-<div id="wrapper"><div id="note-1" class="note">
+<div id="link-hide">
+<a class="nav-h1" href="?navh1=note-1" data-to="note-1">JS</a>
+</div>
+<div id="content-hide"><div id="note-1" class="note">
 
 <h1>JS</h1>
 <h2>Объекты. Деструктуризация.</h2>
@@ -238,6 +258,26 @@ const message = gender == &quot;female&quot; ? &quot;Hey girl&quot; : &quot;Hey 
 
 
 <script>
+    const gLeft = document.querySelector('.g-left'),
+        gContent = document.querySelector('.g-content'),
+        hLink = document.getElementById('link-hide');
+
+
+    gLeft.innerHTML = hLink.innerHTML;
+
+    gLeft.addEventListener('click', (e) => {
+
+        if (e.target.classList.contains('nav-h1')) {
+            e.preventDefault();
+
+            gContent.innerHTML = '';
+            gContent.innerHTML = document.getElementById(e.target.getAttribute('data-to')).innerHTML;
+        }
+
+    });
+
+
+
 
 
 /* PrismJS 1.26.0
